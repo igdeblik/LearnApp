@@ -4,9 +4,13 @@ import { BlockList } from "../BlockList/BlockList";
 
 export const App = () => {
   const [data, setData] = useState([]);
+  const deleteElements = (index) => {
+    const newArray = [...data.slice(0, index), ...data.slice(index + 1)];
+    console.log(newArray);
+    setData(newArray);
+  };
   const newData = (newer) => {
     const newArray = [...data, newer];
-    console.log(newArray);
     setData(newArray);
   };
 
@@ -18,7 +22,7 @@ export const App = () => {
   return (
     <>
       <Form upgradeData={newData} deleteData={deleteData} />
-      <BlockList dataList={data} />
+      <BlockList dataList={data} deleteData={deleteElements} />
     </>
   );
 };
