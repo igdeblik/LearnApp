@@ -1,6 +1,6 @@
 export const BlockList = ({ dataList, deleteData }) => {
   const elements = dataList.map((el, index) => {
-    const infoIndex = () => deleteData(index);
+    const clearList = () => deleteData(index);
     return (
       <div
         key={index}
@@ -19,7 +19,7 @@ export const BlockList = ({ dataList, deleteData }) => {
         </li>
         <button
           className="small_btn"
-          onClick={infoIndex}
+          onClick={clearList}
           style={{ margin: "10px" }}
         >
           Delete
